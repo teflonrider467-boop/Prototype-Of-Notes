@@ -1,0 +1,546 @@
+<!-- Basics Of Web Development -->
+<!-- Challenge that Web solves: Communication Gap -->
+<!-- Let's say Jim is from USA and Bob is from AUSTRALIA, Jim wants to buy a phone at cheap price and Bob wants to sell a phone at cheap price -->
+<!-- Challenge 1: Does Jim and Bob speak the same language -->
+<!-- Challenge 2: How Jim can find Bob -->
+
+<!-- Protocol (How to solve Challenge-1) -->
+<!-- In the Above problem Jim and Bob would first have an Agreement of the language,
+    which is nothing but a set of rules,
+    So in terms of Protocols,
+    Protocols is nothing but a set of rules that defines how communication can happen between two devices,
+
+    Similarly for a system to communicate they have to follow a Protocol,
+    For example think of a T.V. and a Remote,
+    they are programmed in Infrared Protocol;
+    think of wifi and phone,
+    they are programmed in Wi-Fi Protocol;
+
+    When Jim and Bob wants to communicate each other on their PC,
+    They use TCP/IP;-->
+
+<!-- Internet(How to solve Challenge-2) -->
+<!-- Internet is a network where group of computers are connected with a single wire
+     Systems connected over the internet are able to communicate with each other and exchange data;
+     TCP/IP Protocol is agreed upon to connect to internet -->
+
+<!-- TCP/IP -->
+<!-- When we connect to the internet we agree upon a set of rules,
+These rules also make us agree to have a unique number which will make it easier to find us
+This unique number is called IP address, It looks something like: 192.87.45.20;
+Go to command Prompt and write `ipconfig` to know about your IP address
+write ping www.yahoo.com to know the IP address of Yahoo,
+with different computers we find out that we get different IP address for www.google.com or for any other website,
+this is because we might be reaching a different google server at different positions as google has many servers,
+Now IP address of Each computer or a server cannot be remembered, hence we use DNS to solve that issue  -->
+
+<!-- DNS(Domain Name Service), also known as Host Name -->
+<!-- DNS is nothing but an English name, which means an area, that is easy to remember,
+think of your contacts, you may not remember the phone Number of you friend so to access them you write their number and store it under there name
+IP address is like the Contact Number whereas DNS is like the Contact Name
+Domain Name has to be Unique, and for it to be Unique you have to buy
+There are two types of seller who sells Domain Names
+1. Web Hosting Provider(Digital Ocean, BlueHost, HostGator)(They sell space in the server, that is, IP Address is shared)
+2. Domain Name Provider(GoDaddy)
+DNS Server is used to convert a Domain name to IP Address
+When a user write a domain name such as www.facebook.com, the nearby DNS(Domain name system) servers convert the domain name into IP Address and fetch the data-->
+
+<!-- HTTP(Hyper Text Transfer Protocol) -->
+<!-- The TCP/IP protocol does not care what type of data is being sent it just sends zeroes and ones,
+The HTTP protocol is used to transfer data like Hyper Text(Images, Videos over the Internet)
+HTTP depends on TCP/IP to transfer the data but how the data should be transferred, what kind of data is basically handled by HTTP -->
+
+<!-- Web Servers listen to the HTTP requests, and sends the response of those requests -->
+<!-- The HTTPS request and response are handle through a web server
+    Some of the most used web servers are:-
+1. NGINX
+2. Apache
+3. CloudFlare Server
+4. LiteSpeed
+5. Microsoft-IIS
+6. Node.JS
+ -->
+
+<!-- Browser is a tool that help us render website -->
+
+<!-- There are 3 types of Languages
+1. Programming Language(uses Compiler): C, C++, Java(There job is to interact with the machine and Hardware)
+2. Scripting Language(uses Interpreter): PHP, JavaScript, Python, Ruby(They are Built on Top of the Programming Languages)
+3. Markup Language: HTML, XML(They are used to mark up the details in the files like linking up a resource or to display a content or to link another file in the server) -->
+<!-- In Compiling languages, we write our code then we compile our code which gets us a machine level code that gets executed -->
+<!-- In Interpreted languages we don't need to compile our code, it gets executed as the file is running -->
+
+<!-- HTML stands fot Hyper Text Markup Language -->
+<!-- Hyper Text refers to all the images, text, videos and all those data that is being transferred over the internet -->
+<!-- Markup language refers to the language using which you mark the content or the purpose of the content -->
+<!-- So the language used in order to Markup the Hyper Text is called Hyper Text Markup Language  -->
+<!-- HTML is used to describe the structure of the web page -->
+<!-- The main purpose of HTML is to embed resource on the server in an organized manner and display itself to the Client once it is called -->
+<!-- HTML is not case sensitive which means <p></p> is not different from <P></P> -->
+
+<!-- BoilerPlate is the amount of code that is necessary -->
+<!DOCTYPE html> <!-- It tells which version of html 5 is being used -->
+<html lang="en"> <!-- It Specifies the primary language for the website, that is also used by voice generation tools to red out the content for blind users -->
+<head> <!-- The head section content is not visible except the title -->
+    <meta charset="UTF-8"> <!-- It ensures that the character used in the website is displayed correctly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- It tells how to display your website when it first opens -->
+    <meta name="description content=This is a tutorial on HTML"><!-- This is used to write description in google -->
+    <meta name="keywords" content="html5, learning, web, PHP">
+    <title>Document</title> <!-- It gets displayed in the tab of the website -->
+    <link rel="stylesheet" href="./learnCSS.css"><!-- It links the external CSS file to the document, the `rel` attribute is necessary without it the browser does not know what to do with the file resource attached to the HTML -->
+    <!-- BootStrap is a Pre-made CSS files built by the developers of twitter with can be included in our own Web Development Project to increase Productivity and Responsiveness -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- MUI, Animate and Tailwind are other FrameWorks similar to BootStrap -->
+
+    <style>
+
+        /* COLOR THEORY :- */
+        /* Red    : Love      - Energy    - Intensity */
+        /* Yellow : Joy       - Intellect - Attention */
+        /* Green  : Freshness - Safety    - Growth    */
+        /* Blue   : Stability - Trust     - Serenity  */
+        /* Purple : Royalty   - Wealth    - Feminity  */
+        /* Analogous Color(Not good for Standing Out): Colors adjacent to each other on color wheel, for eg. Red, red-orange, orange */
+        /* Complementary Color(Good for Standing Out, keep it to logos not text): Colors opposite of each other on color wheel, for eg. Red and Green */
+        /* colourhunt.co */
+        
+        /* TYPOGRAPHY :- */
+        /* SERIF family has feet in alphabets (Authoritative, Traditional, Stable, Respectable) */
+        /* Sans-SERIF family has perfect right angles (Sensible, Simple, Straightforward) */
+        /* Open shapes, Ample inter-character spacing, Unambiguous forms, Varying proportions */
+
+        /*                             USER INTERFACE                             */
+
+        /* HIERARCHY: Most important information should be conveyed first for a good UI design */
+        /* LAYOUT: Make the interface interesting, keep the content to be at just right size */
+        /* ALIGNMENT: Keep the starting point of content to be same */
+        /* WHITE SPACE: Give ample and continuous white space between content */
+        /* AUDIENCE: Design according to your Audience */
+
+        /*                             USER EXPERIENCE                             */
+
+        /* SIMPLICITY: Keep it simple */
+        /* CONSISTENCY: Keep it consistent */
+        /* READING PATTERN: Keep it Zig-Zag */
+        /* RESPONSIVE: Keep it Responsive, don't have too much banners, warnings and cookies */
+
+        #internalcss{
+            color: blue;
+        }
+
+    </style>
+</head>
+<!-- Tag, Elements, and Attributes -->
+<!-- <h1>Hello</h1> -->
+<!-- Here <h1> is the tag, `Hello` is the Content inside it, <h1> is the starting tag, </h1> is the ending tag, The whole thing is element -->
+<!-- When you don't have any content between the tag it is called as Empty Tag or Empty Element, it is also sometimes referred to as self closing Tag -->
+<!-- Ever Element or tag can have additional properties called Attributes -->
+<!-- <a href="www.google.com">This is a link</a>, here href is an attribute -->
+<!--  -->
+<body>
+    <h1>Heading</h1><!-- 32px --><!-- One HTML page should only have one `h1` -->
+    <h2>Heading</h2><!-- 24px -->
+    <h3>Heading</h3><!-- 18.72px -->
+    <h4>Heading</h4><!-- 16px -->
+    <h5>Heading</h5><!-- 13.28px -->
+    <h6>Heading</h6><!-- 10.72px -->
+
+    <h2>Hello</h2>
+    <h3><h2>Hello</h2></h3><!-- `h2` heading will be printed -->
+    <h3>Hello</h3>
+    <h2><h3>Hello</h3></h2><!-- `h3` heading will be printed -->
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <p>Paragraph</p><p>Paragraph</p>
+    <p>Another Paragraph, (They have a break, even if you write it in the same line of code like above)</p>
+    <hr>
+
+    <!-- White Spaces are ignored by HTML unless we use <pre> tag -->
+    <pre>It is     used to format   the content as it
+        is
+    </pre>
+    <hr>
+
+    <!-- To add `special characters` and `spaces` in any other element except <pre> we use HTML Entities -->
+    <!-- They start with `&` and end with `;`, eg: &nbsp; -->
+    <p>
+        &copy;Lorem &hearts;, ipsum dolor si&nbsp;&nbsp;&nbsp;&nbsp;t amet consectetur adipisicing elit. Dolorem blanditiis veritatis, porro eaque saepe accusamus officia ipsa veniam magnam debitis error velit. Quod.
+    </p>
+    <hr>
+
+    <code>alert("This is used to write computer code");</code>
+    <hr>
+    
+    <div class="class_margin"></div>
+    <hr>
+    
+    <p>Lorem ipsum dolor <br>, sit amet consectetur adipisicing elit. Delectus voluptates fugiat adipisci mollitia, aliquam tenetur odit facere autem iure perspiciatis, consectetur, eos molestias qui assumenda!</p>
+    <p>br element is used to provide breaks in a paragraph or inline elements</p>
+    <!-- You can also write <br> as <br /> -->
+    
+    <div class="class_margin"></div>
+    <hr>
+    
+    <!-- List are of 3 types
+    1. Definition List
+    <dl>
+        <dt>Main Data Entry</dt>
+        <dd>Description od Data printed with an indentation</dd>
+    </dl>
+    2. Ordered List
+    <ol>
+        <li></li>
+    </ol>
+    3. Unordered List
+    <ul>
+        <li></li>
+    </ul> -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ol start="8">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <ol start="1000">
+            <li>list within list</li>
+        </ol>
+        <li>4</li>
+    </ol>
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <!-- Anchor, a tag -->
+    <a href="www.google.com" draggable="true" target="_blank">this is a link, which opens in a new tab because of target attribute</a>
+    <a href="www.google.com" onclick="alert('Hello')" draggable="true">this is a link</a>
+    <a href="www.google.com" onmouseover="alert('world')" draggable="true">this is a link</a>
+    <a href="" onclick="history.back()"></a><!-- Similar to Google Chrome back button-->
+    <a href="" onclick="history.forward()"></a><!-- Similar to Google Chrome forward button-->
+    <!-- draggable equals true removes the ability to copy the element -->
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <table border="3" cellspacing = "5px" cellpadding = "2px">
+        <caption>Table Caption or Title</caption>
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>Hardik</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Hardik</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Footer</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+
+    <!-- Image, img tag -->
+     <!-- unsplash.com for free HD images -->
+    <img alt="a dog" src="https://picsum.photos/id/237/200/300">
+    <hr>
+
+    <video width="320" height="240" controls>
+        <source src = "" type="video/mp4">
+        This text is shown when video is unable to be played
+    </video>
+    <hr>
+
+    <audio controls autoplay>
+        <source src="" type="audio/mpeg">
+        This text will show if the browser doesn't support the audio
+    </audio>
+
+    <form method="get" action="results.html"><!-- action tells where you want this file to go to when someone submits it -->
+        <!-- With get method the data will be added in the URL; but not in POST -->
+        <label for="First Name">First Name:</label>
+        <input type="text" placeholder="Enter your First Name" name="FirstName" id="First Name"><!-- The id attribute should match the `for` attribute of label tag -->
+
+        <!-- for submit button we can also use input -->
+        <input type="submit">
+        <input type="reset" value="clear form">
+        <input type="radio">
+        <input type="checkbox">
+        <textarea name="" id="" rows="5" cols="50"></textarea>
+    </form>
+    <hr>
+
+    <!-- div tags -->
+    <div>
+        Div tags are Division tags that are used to divide tags into groups
+        div has full width and zero height
+        div inherits its children's height
+    </div>
+    <hr>
+
+    <iframe src="page1.html" height="300" " width="300" frameborder="0"></iframe>
+    <iframe src="page2.html" height="300" " width="300" frameborder="0"></iframe>
+    <iframe src="https://www.google.com" height="300" " width="300" frameborder="0"></iframe>
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <p>../some_folder     (refers to file which is to be found when you go back up a folder in which the html file is)</p>
+    <p>./some_folder     (refers to file in the folder in which the html file is)</p>
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <p style="color:red">The CSS applied in this paragraph is inline, i.e., CSS is written inside the tag itself, color is the PROPERTY and red is the VALUE, the style is applied only on the element it is written in</p>
+    <p id="internalcss">The CSS applied in this paragraph is internal, i.e., the element is targeted by specifying the tag itself or by specifying the ID(they have unique value and are used to uniquely identify elements) or CLASS(they don't have to be unique value and are used to identify elements in a group) assigned to it then the CSS is written inside STYLE tag inside the HEAD tag, the style is applied only on the element that are targeted in that particular page</p>
+    <p class="externalcss">The CSS applied in this paragraph is external, i.e., CSS is written in a different CSS file and then the file is linked to the HTML document using LINK tag, the style is applied to every page that has the CSS file is linked to it</p>
+    <p>The Inline CSS has the highest priority, followed by Internal CSS and then External CSS</p>
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <div class="class_firstdiv">the DIV element is an invisible box whose visibility changes according to the Content in it followed by the CSS that is applied to it where The CSS has the higher priority. It is a great practice to encompass every element in a div and every div in another div</div>
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <div class="class_position class_static">Static</div>
+    <div class="class_position class_relative">Relative</div>
+    <div class="class_position class_absolute">Absolute</div>
+    <div class="class_position class_fixed">Fixed</div>
+
+    <div class="class_margin"></div>
+    <hr>
+
+    <div class="class_display">
+        <h2 class="class_inline">hello</h2>
+        <h2 class="class_inline">world</h2>
+    </div>
+
+    <div class="class_display">
+        <h2 class="class_block">hello</h2>
+        <h2 class="class_block">world</h2>
+    </div>
+
+    <div class="class_display">
+        <h2 class="class_inlineblock">hello</h2>
+        <h2 class="class_inlineblock">world</h2>
+    </div>
+
+    <hr>
+
+    <div class="grid-container">
+        <div class="class-card first"></div>
+        <div class="class-card"></div>
+        <div class="class-card"></div>
+        <div class="class-card"></div>
+        <div class="class-card"></div>
+    </div>
+
+    <hr>
+
+    <div class="flex-container">
+        <div class="card2 first2">1</div>
+        <div class="card2 second2">2</div>
+        <div class="card2">3</div>
+        <div class="card2">4</div>
+    </div>
+
+    <hr>
+
+    <div class="container-sm"><!-- Creates a div with a specific left and right margin to it, its is responsive-->
+                           <!-- sm-540px, md-720px, lg-960px, xl-1140px, xxl-1320px -->
+        <div class="row"><!-- Creates a row  -->
+            <!-- Creates a column, a row can have 12 columns according to BootStrap -->
+            <div class="col-md-2 border">col-md-2</div><!-- md specifies the breakpoint at which the column will start taking full width -->
+            <div class="col-4 border">col-4</div>
+            <div class="col-6 border">col-6</div>
+            <!-- Sum of 2, 4, and 6 is 12 because row is divided into 12 columns -->
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-4 m-auto d-flex flex-column">
+                <button class="btn btn-primary mb-1">Primary</button>
+                <button class="btn btn-secondary mb-1">Secondary</button>
+                <button class="btn btn-success mb-1">Success</button>
+                <button class="btn btn-danger mb-1">Danger</button>
+                <button class="btn btn-warning mb-1">Warning</button>
+                <button class="btn btn-info mb-1">Info</button>
+                <button class="btn btn-light mb-1">Light</button>
+                <button class="btn btn-dark mb-1">Dark</button>
+            </div>
+        </div>
+        </div>
+
+        <hr>
+
+        <div class="class_DOM">
+        </div>
+        <div class="class_DOM">
+            <button type="checkbox"></button>
+        </div>
+    </div>
+
+    <!-- BootStrap -->
+    <!-- BootStrap is like a website Template which has pre-defined reusable HTML components, which speeds up the process of building a website -->
+    <!-- Bootstrap is an Open source toolkit for developing with HTML, CSS, JS -->
+    <!-- It also helps in building Responsive Web Design -->
+    <!-- BS5 Screen(Breakpoints) : It works over 6 types of screens; x-small(<576 px)(infix = None), small(>=576 px)(infix = sm), medium(>=768 px)(infix = md), large(>=992 px)(infix = lg), Extra large(>=1200 px)(infix = xl), Extra Extra Large(>= 1400px)(infix = xxl)  -->
+    <!-- BS5 Containers class : .container(does not cover 100% of screen except when it is less than 576 px), .container-fluid(cover 100% of screen) -->
+    <!-- BS5 Grids and Columns : give the div tag a class of value `row` in which we are about to define the columns  -->
+    <!-- In each row we have 12 columns, now each and every column can span itself to any number of columns -->
+    <!-- for example -->
+    <div class="row">
+        <div class="col-lg-1 col-sm-12">spans to 1 columns out of 12 when in large screen and now we have 12-1 = 11 columns to fill, when in small it expands to all 12 columns and the next column will come in the next line</div>
+        <div class="col-lg-2 col-sm-12">spans to 2 columns out of 12 when in large screen and now we have 12-1-2 = 9 columns to fill, when in small it expands to all 12 columns and the next column will come in the next line</div>
+        <div class="col-lg-7 col-sm-12">spans to 7 columns out of 12 when in large screen and now we have 12-1-2-7 = 2 columns to fill, when in small it expands to all 12 columns and the next column will come in the next line</div>
+        <div class="col-lg-1 col-sm-12">spans to 1 columns out of 12 when in large screen and now we have 12-1-2-7-1 = 1 column to fill, when in small it expands to all 12 columns and the next column will come in the next line</div>
+    </div>
+    <!-- auto column layout : used when the columns we have to cover are in such a number that we may have to leave certain col empty,
+        for example, 
+        if we need to fill a row with 5 elements of equal size then we can only fill upto 10 cols and we need to make 2 cols empty
+        to do this, we simply do not need to specify the spanning of columns
+    -->
+        <div class="row">
+            <div class="col">x</div>
+            <div class="col">xx</div>
+            <div class="col">xxx</div>
+            <div class="col">xxxx</div>
+            <div class="col">xxxxx</div>
+        </div>
+    <!-- row-col class(new concept in BS5) : It solves the problem of auto column layout where we cannot specify that how many column should come in one line
+            It gives us the option of how many auto columns we want in a single line
+    -->
+            <div class="row row-cols-5">
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+                <div class="col">This will bring 5 columns in a single line</div>
+            </div>
+    <!-- Gutter classes in Bootstrap 5 : Its like gap property in justify-content, gutter classes provides us to give padding and margin between columns through row itself -->
+     <div class="row gx-0 gx-lg-5">
+        <div class="col">gx-0 removes the default padding in column(1.50/2 rem = 12px), and makes the padding 0.00rem(16*0) = 0px</div>
+        <div class="col">gx-1 removes the default padding in column(1.50/2 rem = 12px), and makes the padding 0.25rem(16*0.25) = 2px(1px left and 1px right)</div>
+        <div class="col">gx-2 removes the default padding in column(1.50/2 rem = 12px), and makes the padding 0.50rem(16*0.50) = 8px(4px left and 4px right)</div>
+        <div class="col">gx-3 removes the default padding in column(1.50/2 rem = 12px), and makes the padding 1.00rem(16*1.00) = 16px(8px left and 8px right)</div>
+        <div class="col">gx-4 removes the default padding in column(1.50/2 rem = 12px), and makes the padding 1.50rem(16*1.50) = 24px(12px left and 12px right)</div>
+        <div class="col">gx-5 removes the default padding in column(1.50/2 rem = 12px), and makes the padding 3.00rem(16*3.00) = 48px(24px left and 24px right)</div>
+     </div>
+     
+     <div class="row gy-0 gy-lg-5">
+        <div class="col">gy-0 removes the default margin in column(1.50/2 rem = 12px), and makes the margin 0.00rem(16*0.00) = 00px(00px top and 00px bottom)</div>
+        <div class="col">gy-1 removes the default margin in column(1.50/2 rem = 12px), and makes the margin 0.25rem(16*0.25) = 02px(01px top and 01px bottom)</div>
+        <div class="col">gy-2 removes the default margin in column(1.50/2 rem = 12px), and makes the margin 0.50rem(16*0.50) = 08px(04px top and 04px bottom)</div>
+        <div class="col">gy-3 removes the default margin in column(1.50/2 rem = 12px), and makes the margin 1.00rem(16*1.00) = 16px(08px top and 08px bottom)</div>
+        <div class="col">gy-4 removes the default margin in column(1.50/2 rem = 12px), and makes the margin 1.50rem(16*1.50) = 24px(12px top and 12px bottom)</div>
+        <div class="col">gy-5 removes the default margin in column(1.50/2 rem = 12px), and makes the margin 3.00rem(16*3.00) = 48px(24px top and 24px bottom)</div>
+        also gy provides a negative margin to the row , that is if we apply a margin to every column in our row, then the same value of margin will be removed from our row div
+     </div>
+
+    <!-- Images needs to be made responsive from our side :  -->
+    <img src="" class="img-fluid" alt="">makes the image's width as 100% according to parent width, if the image is larger, and makes itself to its original size if the parent's size is larger
+    <img src="" class="img-thumbnail" alt="">makes the image's width and its border as 100% according to parent width , if the image is larger, and makes itself to its original size if the parent's size is larger
+    <!-- Float and Clear Classes : Its like display: flex,  -->
+     <div class="border">
+        <div class="float-lg-start float-none"><button>This button will go to the left, and makes the div parent as block</button></div>
+        <div class="float-lg-end">This button will go to the right</div>
+        <div class="clearfix">This class will remove the direction and th row knows that there will be only two buttons, and now every new element will start from next line, its like <br> tag, also the borders will be now visible</div>
+     </div>
+    <!-- Button classes -->
+     <a href="" class="btn btn-primary btn-lg "></a>
+     <a href="" class="btn btn-outline-warning btn-lg "></a>
+    <!-- Bootstrap Card : Cards like those that show testimonies or prices-->
+    <div class="card">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">This is the title of card</h5>
+            <p class="card text"> This is description of Class</p>
+            <a href="" class="btn btn-outline-primary">Go somewhere</a>
+        </div>
+    </div>
+    <!-- Bootstrap Table -->
+     <div class="table-responsive">
+     <table class="table table-dark table-stripped table-hover table-bordered">
+        <thead class="table-success">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody class="table-warning">
+            <tr>
+                <td>Hardik</td>
+                <td>hardiksingh467@gmail.com</td>
+            </tr>
+
+            <tr>
+                <td>Gagan</td>
+                <td>gagan467@gmail.com</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total Users : 2</td>
+            </tr>
+        </tfoot>
+     </table>
+    </div>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- below button is the Hamburger button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Logo/Home Icon/Brand</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Disabled</a>
+            </li>
+          </ul>
+          <div class="me-auto">
+            Logout when there is a session
+            Login when there is no session
+            Register when there is no session
+          </div>
+        </div>
+        nav>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+
+    <!-- JavaScript file of BootStrap which enable dropdown and popups -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- jQuery linking/ incorporating -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Linking JavaScript File -->
+    <!-- We link it at the end so that the HTML File load first and all the element on which the operations are to be performed exist -->
+    <script src="learnJavaScript.js"></script>
+</body>
+</html>

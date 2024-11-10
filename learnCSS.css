@@ -1,0 +1,187 @@
+/* Cascading Style Sheets is used to Style our website, Cascade refers to a type of waterfall where when top waterfall ends there another waterfall begins  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;700&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* the tag, id, class or attributes(draggable, href) specified in the css document is known as CSS selectors */
+/* p[draggable]{} */
+/* p[draggable="false"]{} are some of the attribute selectors */
+
+/* 1px : 1/96 inch(0.26 mm) */
+/* 1pt : 1/72 inch(0.306 mm) */
+/* 1em : 100% of parent font, i.e., the tag that encompasses the element(./) */
+/* 1rem : 100% of root font, i.e., the <html> tag(usually) that encompasses the element(......./) */
+
+.externalcss {
+  color: red; /*This will be implemented not ignored because #00FF00 specification below overwrite this rule, higher the nth line(the line on which the code is written) in the code -> higher the priority */
+  color: #00ff00; /*This line of code can get ignored if the browser doesn't understand the color #00FF00 and in that case red will be applied as it is declared just above the #00FF00 line*/
+  /*Specificity or Priority between: ID > Attribute = Class= Pseudo Class > Tag*/
+  font-size: 1.2rem !important; /* IMPORTANT keyword makes the assigned property the most prioritized*/
+  font-family: "Roboto", sans-serif;
+  border: 6px solid black; /* increasing the border width expands the border outwards */
+  border-top: 0px;
+  border-width: 0px 10px 20px 30px; /* top-right-bottom-left (Clockwise direction)*/
+  border-width: 10px 20px; /* top-bottom right-left (top to bottom, right to left)*/
+  padding: 20px; /* pushes the border away from content, content remains unharmed, the box expands */
+  /* But if you add box-sizing: border-box, then the borders do not grow */
+  margin: 10px; /* pushes the outside content away from border, border and the content remains unharmed, the div expands */
+}
+/*In a box model the element is at center followed by padding -> border -> margin -> positioning*/
+.class_firstdiv {
+  margin-top: 25px;
+  border: 2px solid blue;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+/* Grouping: selector, selector{} (Apply the same CSS to all the specified selectors)*/
+/* Chaining: selectorselector{} (Apply the same CSS to the specified selectors, used for specificity(eg: h1#title.bold.large)*/
+/* Child: (Parent)selector > (Child)selector(The tag just below the Parent){} (Apply the CSS to the Child)*/
+/* Descendant: (Ancestor)selector (Descendant)selector(Any tag in the Ancestor){} (Apply the CSS to the Descendant)*/
+.class_position {
+  height: 3svh; /* svh-> Small viewport Height, represents smallest 1% of possible viewport height */
+  width: 10svh;
+  border: 2px solid black;
+  margin: 10px 0px;
+}
+
+.class_static {
+  position: static; /*Default Positioning, goes in the bottom of whatever previous element there is*/
+  left: 50px;
+  top: 100px; /*These properties do not work on static positioning*/
+}
+
+.class_relative {
+  position: relative; /*Changes position relative to Static positioning or Default positioning*/
+  left: 50px;
+  background: red;
+}
+
+.class_absolute {
+  position: absolute; /*Changes position relative to nearest ancestor, if it doesn't have ancestor then according to top-left corner of a webpage, we can also think like the element lifts up and vacates its place for its previous element to take */
+  left: 50px; /*Notice that it is positioned left to the top-left corner of webpage and hence it is 10px behind Relative positioning*/
+  background: green; /*If the top-left-bottom-right is not specified it remains at it's Static position*/
+  z-index: 1; /*every element has z-index of 0, element with higher z-index will overlap the element with lower z-index*/
+}
+
+.class_fixed {
+  /* position: fixed;Changes position according to top-left corner of a webpage */
+  right: 20px;
+  bottom: 0px;
+  background: blue;
+}
+
+.class_margin {
+  margin-top: 50px;
+}
+
+.class_display {
+  border: 2px solid black;
+  margin: 10px;
+}
+
+.class_inline {
+  display: inline; /*Makes the element to come in one line(By Default some elements have this property)*/
+  /*You cannot change the height and width of inline elements as they fit to their own content*/
+}
+
+.class_block {
+  display: block; /*Makes the element to occupy one entire block or have 100% width(By Default most elements have this property)*/
+}
+
+.class_inlineblock {
+  display: inline-block; /*Makes the element to come in one line(By Default some elements have this property)*/
+  /*You can change the height and width of inline elements*/
+  width: 49%;
+}
+
+@media (max-width: 600px) {
+  /*CSS for screens <=600px wide*/
+}
+
+@media (min-width: 600px) {
+  /*CSS for screens >=600px wide*/
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  /*CSS for screens <=900px >=600px wide*/
+  /* between 600 and 900 */
+}
+/* Mobile Devices: 319px - 480px
+IPads and Tablets: 481px - 1200px
+Laptops: 1201px - 1600px
+Desktops: 1601px and more */
+
+.grid-container {
+  display: grid;
+  /* The smallest entity in a GRID is a Grid Cell */
+  /* Grid Lines separate the Grid cells, we can only change their Height and Width, we cannot add any colors or design into them */
+  /* GRID consist up of Rows and Columns */
+  grid-template-columns: 1fr 1fr; /*Divided the div in two equal width Fraction of columns*/
+  grid-template-rows: 100px 200px 200px; /*first row 100px second row 200px third row 200px*/
+  gap: 30px;
+  /* 
+    1 2
+    3 4
+    5
+    
+    The above is how Grids are placed left to right, top to bottom
+     */
+}
+.first {
+  grid-column: span 2; /* This property specifies the amount of grid that the targeted DIV has to occupy */
+  grid-column-start: 2; /* This property specifies which track should the Grid Item should start(Grid Track starts from 1) */
+  grid-column-end: 3; /* This property specifies which track should the Grid Item should end(Grid Track also ends at -1) */
+  order: 1;
+  /* Order lets you Re-Arrange Grid Items, By Default all Grid Items have an order of 0, Highest order comes at last */
+}
+
+.class-card {
+  background-color: blue;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row; /*It is row by default and can be changed to column, write it where you specify display: flex*/
+  flex-wrap: wrap; /*sends extra element to next line*/
+  justify-content: center; /*Sets the distribution of items along the main axis*/
+  align-items: center; /*Sets the distribution of items along the cross axis*/
+  /* Priority of flex sizing: Content Width < Width < Flex-basis < min-width(longest word in the sentence)/max-width(longest possible single line) */
+}
+
+.card2 {
+  background-color: red;
+  border: 30px solid white;
+  height: 100px;
+  flex: 1; /*Each of the cards will have equal distribution*/
+  flex-basis: 100px; /*This property is not intended for the parent and it specifies the length of main-axis(height for column-direction, width for row-direction), Initial starting value of flex items*/
+  flex-grow: 1; /* It lets Flex Items grow as much as they can, set to 0 by Default */
+  flex-shrink: 1; /* It keeps Flex Items width or length equal to flex-basis, set to 0 by Default */
+}
+.first2 {
+  align-self: flex-start; /*Sets the distribution of the particular item along the cross axis*/
+  flex: 2;
+  order: 1;
+}
+.second {
+  flex: 0.5;
+}
+
+/* Initial styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Adding padding and border will now reduce the size of content, such that [content width + paading + border] = [Box Model Width(Margin not included)]*/
+  font: inherit; /* Gets rid of default font sizes and font weights*/
+}
+
+body {
+  min-height: 100vh;
+}
+
+:root {
+  --dark-color: #1a1d20;
+  --light-color: #fff;
+}
+p {
+  color: var(--dark-color);
+}
+
+h1 {
+  color: var(--light-color);
+}

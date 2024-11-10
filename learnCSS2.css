@@ -1,0 +1,177 @@
+/* This is a CSS Comment */
+/* CSS stands for Cascading Style Sheets */
+/* CSS is used to design the content of the webpage */
+/* CSS is used to control the layout of the page */
+/*  */
+/* h1{
+    color: red;
+    font-size: 12px;
+} */
+/* In the above example,
+h1 is the selector, The content between curly brackets (including the curly brackets) is called the declaration block */
+/* color:red;, the whole is referred to as declaration */
+/* `color` is what one calls property and `red` is what one calls value */
+/* Specifying `Declaration` in the style attribute of an HTML Tag is referred to as Inline CSS */
+/* Specifying `selectors` followed by `Declaration` in between ,<style></style> which is written in <head> tag, is referred to as Internal CSS */
+/* Specifying `selectors` followed by `Declaration` in another file with .css extension and linking that file to the HTML document using <link> tag is referred to as External CSS */
+
+/* You can import another stylesheet(let's say style2.css) into a stylesheet(let's say style1.css) by writing `@import style2.css` in style1.css */
+@import "header.css";
+@import "footer.css";
+
+/* CSS Selectors */
+/* 
+Universal, Type, Class, ID, Attribute, Child, Descendent, Adjacent sibling, General Adjacent Sibling, Pseudo Class
+
+1. Universal Selectors
+Here you write an asterisk as a selector 
+*{
+    CSS applied to this selector will be applied to each and every element in the HTML
+}
+
+*/
+
+/* 
+
+2. Type Selector
+Here you mention the tag name
+h1{
+    CSS applied to this selector will be applied to each and every <h1> tag in the HTML
+}
+
+p{
+    CSS applied to this selector will be applied to each and every <p> tag in the HTML
+}
+
+h1, p{
+    CSS applied to this selector will be applied to each and every <h1> and <p> tag in the HTML
+}
+
+*/
+
+/* 
+
+3. Class Selector
+Here you mention the value of class attribute with a `.` as a suffix
+.iWantThisToBeBlack{
+    CSS applied to this selector will be applied to each and every tag that has a `class` attribute with the value `iWantThisToBeBlack` in the HTML
+    Multiple Tags can have the same class
+    Single tag can have multiple class
+}
+
+*/
+
+/* 
+
+4. ID selector
+Here you mention the value of ID attribute with a `#` as a suffix
+#.iWantThisToBeBlack{
+    CSS applied to this selector will be applied to each and every tag that has a `id` attribute with the value `iWantThisToBeBlack` in the HTML
+    Multiple Tags cannot have the same ID
+    Single Tags can have only Single ID
+    ID's are Unique
+}
+ */
+
+/*
+
+5. Attribute selector
+Here you mention the value of name of attribute with its tag that it is contained in
+p[class]{
+    CSS applied to this selector will be applied to each and every tag that has a attribute of class with or without any value in the HTML
+}
+
+*/
+
+/* 
+
+6. Child Selector
+Here you mention the parent element(let's say <div>) followed by `>` then Child element(Let's say <p>)
+The child should come right after the parent element, just like <thead> comes after <table>
+div > p{
+    CSS applied to this selector will be applied to each and every tag that has a <div> as a parent and it appear right after the parent in the HTML
+}
+ */
+
+/*
+
+7. Descendent Selector
+Here you mention the parent element(let's say <div>) followed by ` ` then Child element(Let's say <p>)
+The Child can be anywhere after the Parent element
+div  p{
+    CSS applied to this selector will be applied to each and every tag that has a <div> as a parent in the HTML
+}
+ */
+
+/*
+
+8. Adjacent Sibling Selector
+Here you mention the first element(let's say <div>) followed by `+` then second element(Let's say <p>)
+Both of them occur one after the other, not within each other
+div+p{
+    CSS applied to this selector will be applied to each and <p> tag that has a <div></div> followed by <p></p> in the HTML
+}
+ */
+
+/* 
+
+9. General Adjacent Sibling Selector 
+Here you mention the first element (let's say <div>) followed by `~` then second element(Let's say <p>)
+They are Sibling but they don't have to come one after the other
+
+*/
+
+/* 
+10. Psuedo Class and Psuedo Element Selector
+just look at example
+a:link{
+
+}
+a:visited{
+
+}
+
+a:hover{
+
+}
+h1::after{
+    content:!!!
+
+    so after every h1 tag you will see above symbols
+}
+p::first-letter{
+    font-size: 200%;
+
+
+*/
+
+/*
+CSS Specificity or Precedence 
+
+Descendent Selector>ID>Class, Combination tags>Tag Selector
+
+*/
+
+/* CSS Margins and Padding */
+/*
+
+CSS Floating Columns 
+
+.box{
+    height: 130px;
+    width: 130px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.blue{
+    background-color: blue;
+    float: left; makes boxes float side by side on the left side and makes the display as inline
+}
+
+.green{
+    background-color: green;
+    float: right; Makes boxes float on the right and makes the display as inline
+}
+
+*/
