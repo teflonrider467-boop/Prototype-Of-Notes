@@ -591,3 +591,49 @@ console.log(b);//Output: 11
   Object.is(-0, 0);//Output: false
   Object.is(NaN, NaN);//Output: true
 }
+
+// Closure
+{
+
+  function one(){
+    var channelName = "Code for Interview";
+    return function two(){
+      var actorName = "Ayushmaan Khurana";
+      return function three(){
+        console.log(channelName, actorName);
+      };
+    };
+  }
+  one();
+  // Output: function two(){var actorName = "Ayushmaan Khurana";return function three(){console.log(channelName, actorName);};}
+  one()();
+  // Output: function three(){console.log(channelName, actorNme)}
+  one()()();
+  // Output: Code for Interview, Ayushmaan Khurana
+  // When function one is called it gets pushed into the stack
+  // Whenever we execute a JS file a Global Execution Context gets created
+  // If there is a function it has a Function Execution Context
+  // channelName gets stored in FEC of one();
+  // when our execution comes to return function two() statement, function one() gets removed from the stack and function two is pushed into the stack
+  // because function one() is now gone so is its execution context
+  // now we have FEC of function two()
+  // the the question arises how the FUCK do we have access to channelName in function three(); ?
+  // Here comes the concept of Closures
+}
+// In JavaScript Closures are made by two concepts
+// First concept is functions, if you do not have functions in JS file then closures won't be made
+// Second concept s Lexical Scoping
+// We know that in JS we have two phases Creation and Execution Phase
+// when you are writing code, at that very monet JS gets to know which function is where, that is, in which scope or in which lexical environment
+
+// So even though our function one() was returned and removed from the stack our function three() i still accessing the `channelName`
+// We have something called Memory heap, where all our variables are stored
+// In JS we have a garbage Collector similar to how we have in Java
+
+// Garbage Collector in JS works on `Mark and Sweep Algorithm`
+// It marks whatever it needs
+// For example, here as we are using `channelName` then our Garbage Collector will mark that it is still being referenced
+// and Garbage Collector in the next iteration will sweep those variables which are not marked
+// So when our Garbage collector will get to channelName for sweeping it will see that there is a closure built there, ven though our function has been returned and removed from the stack
+// and how does JS knows that function three is using `channelName` ? The answer is Lexical Scoping
+// 
