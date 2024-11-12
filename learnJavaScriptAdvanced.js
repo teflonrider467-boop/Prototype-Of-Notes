@@ -636,4 +636,40 @@ console.log(b);//Output: 11
 // and Garbage Collector in the next iteration will sweep those variables which are not marked
 // So when our Garbage collector will get to channelName for sweeping it will see that there is a closure built there, ven though our function has been returned and removed from the stack
 // and how does JS knows that function three is using `channelName` ? The answer is Lexical Scoping
-// 
+
+// When do we need to create a Closure?
+{
+  function one(num1){
+    const num2 = Math.pow(10, 10);//let's assume that this line is completing some very huge time and space consuming task
+    return num1 * num2;
+  }
+  // calling this function once won't be a problem
+  one(20);
+  // the problem arises when this function is called multiple times
+  one(20);
+  one(20);
+  one(20);
+  one(20);
+  one(20);
+  // our highly time and space consuming line of code will be called as much amount of time as our `one()` function is called
+  // one solution can be that we globally declare the num2 variable, but we know that that is not aa good thing to do in previous lessons
+  // hence the solution that remains is closures
+}
+{
+  function one(){
+    const num2 = Math.pow(10, 10);
+    return function two(num1){
+      return num1*num2;
+    }
+  }
+  // Now we will only call `one()` once and then we will store it to a constant
+  const fun = one();
+  fun(20);// because of the above line, when we now call our fun, it will call our nested function, that is, two()
+  fun(20);
+  fun(20);
+  fun(20);
+  fun(20);
+  fun(20);
+  fun(20);
+  // because of this one() function only ran once
+}
