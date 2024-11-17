@@ -673,3 +673,33 @@ console.log(b);//Output: 11
   fun(20);
   // because of this one() function only ran once
 }
+
+// Highly asked question on closure
+{
+for(var i =0; i < 5; i++){
+  setTimeout(() => {
+    console.log("i", i);
+  }, 3000)
+}
+//Output: after 3 seconds we will see 5 times 5
+// Expected Output: after 3 seconds 0, 1, 2, 3, 4
+// we know that in JS by default function scope works
+// if we use `var` keyword
+// with `var` keyword a new block only forms when we create a function
+// the curly braces of for loop does not make a new block
+// hence the `var i` is a global variable
+
+// We can either make var to let to achieve expected output
+// but what if we do not have to use let
+// we can then use closures, 
+// we will be making an IIFE
+for(var i =0; i < 5; i++){
+  (function (index){
+  setTimeout(() => {
+    console.log("i", index);
+  }, 3000);
+})(i);
+}
+// usinf IIFE makes a closure here
+
+}
