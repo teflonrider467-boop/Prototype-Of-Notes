@@ -703,3 +703,39 @@ for(var i =0; i < 5; i++){
 // usinf IIFE makes a closure here
 
 }
+
+// Prototypical Inheritance
+// Inheritance is a very important topic in any programming language
+// As long as we cannot inherit, we cannot properly use reusability
+// But in JS we do not have Class based inheritance, we rather have Object based Inheritance
+
+// We know that everything in JS is an object
+// Why do we need Prototypical Inheritance when we have call, bind and apply
+// If you want properties then use bind
+// but Prototypical Inheritance makes it even more easier
+// Inheritance is simply one object accessing the methods and properties of another object
+// 
+// We have something called `dunder proto` in JS: __proto__
+// dunder proto is an entire prototypical chain
+// If we have an arrray called arr1
+// The chain would be something like Object -> Array -> arr1
+// hence if we print arr1.__proto__ and arr1.__proto__.__proto__
+
+{
+let arr1 = [];
+console.log(arr1.__proto__);
+// Output: An Array of All the functions we can use with arrays
+
+console.log(arr1.__proto__.__proto__);
+// Output: An Object of All the functions we can use with arrays
+}
+// same goes for functions as they are object
+{
+  function one() {}
+  console.log(one.__proto__);
+  // Output: A function
+  console.log(one.__proto__.__proto__);
+  // Output: An Object
+}
+
+// Classes in Javascript are simply syntactic sugar, internally it follows Prototypical Inheritance
