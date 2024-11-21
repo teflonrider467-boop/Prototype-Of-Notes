@@ -739,3 +739,76 @@ console.log(arr1.__proto__.__proto__);
 }
 
 // Classes in Javascript are simply syntactic sugar, internally it follows Prototypical Inheritance
+
+//
+
+{ 
+  const obj1 = {
+  name: "Ayushmaan Khurana",
+  printName(){
+    console.log(this.name + " is the name");
+  }
+}
+
+const obj2 = {
+  name: "Code for Interview"
+}
+
+obj1.printName();//Output: Ayushmaan Khurana is the name
+obj2.printName()//Output: Error
+}
+// One way to overcome th above error is to copy and paste the function n obj1 to obj2
+// Second way is we can use call, bind and apply and borrow function of obj1
+{ 
+
+  const obj1 = {
+  name: "Ayushmaan Khurana",
+  printName(){
+    console.log(this.name + " is the name");
+  }
+}
+
+const obj2 = {
+  name: "Code for Interview"
+}
+
+obj1.printName();//Output: Ayushmaan Khurana is the name
+obj1.printName.call(obj2);//Output: Code for Interview is the name
+}
+// The problem is lets say we have multiple methods then we would end up always writing obj1.printName.call(obj3) and so on for other objects
+
+// The best way is to inherit the properties of obj1
+{ 
+  const obj1 = {
+  name: "Ayushmaan Khurana",
+  printName(){
+    console.log(this.name + " is the name");
+  }
+}
+
+const obj2 = {
+  name: "Code for Interview"
+}
+
+obj1.printName();//Output: Ayushmaan Khurana is the name
+obj2.__proto__//Output: {constructor: f, __defineGetter__: f, hasOwnProperty: f,...}
+// obj2.__proto__ return the parent Object which is also the parent of obj1
+obj2.__proto__.__proto__//Output: null, as there is nothing above Object
+
+// So to inherit the properties of obj1 for obj2 we need to break the prototypical chain and create a chain between obj1 and obj2
+obj2.__proto__ = obj1;
+obj2.printName();// Output: Code for Interview is the name
+// we can even check the properties held by obj2 and obj1
+for(let prop in obj2){
+  console.log(prop);
+}//Output: name, printName
+for(let prop in obj2){
+  if(obj2.hasOwnProperty(prop)){
+    console.log(prop);
+  }
+}// Output: name
+// only name will be printed as printName was borrowed from obj1
+}
+
+// But But But we never use dunder proto
+// as the prototypical chain managed by JS automatically is now being set to be managed manually by us
