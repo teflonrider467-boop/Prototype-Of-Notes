@@ -812,3 +812,36 @@ for(let prop in obj2){
 
 // But But But we never use dunder proto
 // as the prototypical chain managed by JS automatically is now being set to be managed manually by us
+
+// function will inherit Function which inherits Object
+// similarly, array will inherit Array which inherits Object
+{
+  // let's say we have
+  function one(){
+    return "Code for interview";
+  }
+  one();// Output: Code for Interview
+}// When we create a function two things happen
+// First a prototype is created which gets assigned to empty Object
+// Second a dunder __proto__ gets created
+// Our prototype which got assigned to empty object points to dunder proto
+// This dunder proto points our function's parent in this case `Function`
+// prototype of one -> __proto__ of one -> prototype of Function -> __proto__ of Function -> prototype of Object -> __proto__ of Object
+// all the properties of one() is not in the prototype or __proto__ of one, it is in prototype of Function()
+
+// We know that when we write one(), it is actually one.call();
+// hence
+{
+  function one(){
+    return "Code for interview";
+  }
+  console.log(one.hasOwnProperty("call"));
+  // Output: false
+  // because one does not have properties if its own
+  // It actually borrows it from Function
+  console.log(one.__proto__).hasOwnProperty("call");//Output: true
+
+  console.log(Function.prototype == one.__proto__);// Output: true
+  // this confirms that the __proto__ of one points to prototype of Function
+}
+// same is true for arrays
