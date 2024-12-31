@@ -845,3 +845,47 @@ for(let prop in obj2){
   // this confirms that the __proto__ of one points to prototype of Function
 }
 // same is true for arrays
+
+// Functional Currying: process of transforming a function with multiple parameters into a series of function that each take a single parameter is called functional currying
+function add(a, b, c){
+  return a + b + c;
+}
+console.log(add(1, 2, 3));
+// the above is a normal function without functional currying
+
+// in the case of functional currying
+function add(a){
+  return function(b){
+    return function(c){
+      return a + b +c;
+    }
+  }
+}
+console.log(add(1)(2)());
+// as add(1) => function(b)
+// and add(1)(2) => function(c)
+
+// a better example of functional currying that showcases reusability is :-
+function multiply(a, b){
+  return a*b;
+}
+let multiplyByTwo = multiply.bind(this, 2);// fixing the value of b to 2
+let multiplyByFour = multiply.bind(this, 4);// fixing the value of b to 4
+console.log(multiplyByTwo(4));// Output: 8
+console.log(multiplyByFour(4));// Output: 16
+
+
+// NULL and Undefined
+// Both of them are primitive data types
+// `NULL` is absence of value
+// `undefined` is absence of definition
+
+var first;// Output: undefined
+
+function add(){
+  const a = 1 + 2;
+}
+// Output: undefined
+
+const a = null;
+console.log(a);// Output: null
